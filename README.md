@@ -23,7 +23,7 @@ A lista completa e atualizada está em [`catalog.yml`](catalog.yml).
 ## Como usar
 
 ```bash
-git clone https://github.com/[ORGANIZACAO]/dsa-queimadas.git
+git clone https://github.com/datascienceam/dsa-queimadas.git
 cd dsa-queimadas
 python -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
