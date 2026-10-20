@@ -1,0 +1,38 @@
+# Catálogo de datasets do dsa-queimadas
+# Cada item começa com "-". Mantenha os mesmos campos em todos.
+
+- id: inpe-focos-mensal
+  nome: Focos de calor mensais (INPE Queimadas)
+  fonte: INPE / Programa Queimadas
+  url: https://dataserver-coids.inpe.br/queimadas/focos/csv/mensal/Brasil/
+  formato: CSV
+  cobertura: Brasil, mensal
+  licenca: conferir nos termos de uso do Programa Queimadas
+  script: scripts/baixar_focos_inpe.py
+  observacoes: >
+    O arquivo reúne vários satélites. O script filtra por padrão o satélite (AQUA_M-T) para manter séries comparáveis.
+  ultima_verificacao: 2026-10-20
+
+- id: nasa-firms
+  nome: Detecação de focos ativos (NASA FIRMS)
+  fonte: NASA FIRMS
+  url: https://firms.modaps.eosdis.nasa.gov/
+  formato: CSV, shapefile, API
+  cobertura: Global, quase em tempo real (MODIS e VIIRS)
+  licenca: conferir nos termos de uso da NASA FIRMS
+  script: null
+  observacoes: >
+    A API exige uma chave gratuita (MAP_KEY). Script de coleta aiinda não implementado.
+  ultima_verificacao: 2026-10-20
+
+- id: terrabrasilis
+  nome: TerraBrasilis (DETER e PRODES)
+  fonte: INPE / TerraBrasilis
+  url: https://terrabrasilis.dpi.inpe.br/
+  formato: Shapefile, GeoJSON, WFS
+  cobertura: Amazônia e outros biomas
+  licenca: conferir nos termos de uso do TerraBrasilis
+  script: null
+  observacoes: >
+    DETER traz alertas de desmatamento e degradação; PRODES as taxas anuais consolidadas. Útil para cruzar com focos de calor.
+  ultima_verificacao: 2026-10-20
