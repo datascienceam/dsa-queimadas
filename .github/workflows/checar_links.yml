@@ -1,0 +1,20 @@
+name: Checar links do catálogo
+
+on:
+  schedule:
+    - cron: "0 12 * * 1" # segunda às 12h UTC (8h em Manaus)
+  workflow_dispatch:     # permite rodar manualmente pelo site
+  push:
+    paths:
+      - "catalog.yml"    # roda também quando o catálogo mudar
+
+jobs:
+  checar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests pyyaml
+      - run: python scripts/checar_links.py
